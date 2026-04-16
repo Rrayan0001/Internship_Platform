@@ -35,7 +35,7 @@ export default function Navbar({ user }: NavbarProps) {
   }
 
   const navLinks = [
-    { label: 'Programs', href: '/' },
+    { label: 'Programs', href: '/#courses' },
   ]
 
   const isActive = (href: string) => pathname === href
@@ -47,7 +47,7 @@ export default function Navbar({ user }: NavbarProps) {
           {/* Logo */}
           <Link href={user?.role === 'admin' ? '/admin' : '/'} className="flex items-center gap-2.5 shrink-0">
             <Image
-              src="/margros-logo.png"
+              src="/logo.png"
               alt="Margros"
               width={38}
               height={38}
@@ -64,7 +64,7 @@ export default function Navbar({ user }: NavbarProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-all hover:scale-105 active:scale-95 duration-200 ${
                   isActive(link.href)
                     ? 'text-[var(--brand)] bg-[var(--background-soft)]'
                     : 'text-[var(--foreground-muted)] hover:text-[var(--brand)] hover:bg-[var(--background-soft)]'
@@ -157,7 +157,7 @@ export default function Navbar({ user }: NavbarProps) {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors ${
+              className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-all hover:scale-[1.02] active:scale-95 duration-200 ${
                 isActive(link.href)
                   ? 'text-[var(--brand)] bg-[var(--background-soft)]'
                   : 'text-[var(--foreground-muted)] hover:text-[var(--brand)] hover:bg-[var(--background-soft)]'

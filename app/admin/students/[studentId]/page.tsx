@@ -139,15 +139,15 @@ async function EnrollmentJourney({
         </span>
       </div>
 
-      <div className="grid grid-cols-4 divide-x divide-[var(--border)] border-b border-[var(--border)]">
+      <div className="grid grid-cols-2 sm:grid-cols-4 border-b border-[var(--border)]">
         {[
           { label: 'Videos Watched', value: `${watchedVideos}/${totalVideos}`, icon: Video },
           { label: 'Assignments', value: `${submittedAssignments}/${totalAssignments}`, icon: FileText },
           { label: 'Avg Score', value: `${avgScore}%`, icon: CheckCircle2 },
           { label: 'Certificate', value: enrollment.certificate_status.replace('_', ' '), icon: Award },
-        ].map((stat) => (
-          <div key={stat.label} className="px-5 py-4 text-center">
-            <div className="font-bold text-[var(--brand)]">{stat.value}</div>
+        ].map((stat, i) => (
+          <div key={stat.label} className={`px-4 sm:px-5 py-4 text-center ${i % 2 === 0 ? 'border-r border-[var(--border)]' : ''} ${i < 2 ? 'border-b sm:border-b-0 border-[var(--border)]' : ''} sm:border-r sm:last:border-r-0`}>
+            <div className="font-bold text-[var(--brand)] text-sm sm:text-base">{stat.value}</div>
             <div className="text-xs text-[var(--foreground-subtle)] mt-0.5">{stat.label}</div>
           </div>
         ))}

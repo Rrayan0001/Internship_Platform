@@ -246,7 +246,7 @@ export default function ProfileForm({ profile, userEmail }: Props) {
                   className="input-field pr-10"
                 />
                 <button type="button" onClick={() => setShowNew(v => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--foreground-subtle)] hover:text-[var(--foreground)]">
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-[var(--foreground-subtle)] hover:text-[var(--foreground)]">
                   {showNew ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
@@ -262,7 +262,7 @@ export default function ProfileForm({ profile, userEmail }: Props) {
                   className="input-field pr-10"
                 />
                 <button type="button" onClick={() => setShowConfirm(v => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--foreground-subtle)] hover:text-[var(--foreground)]">
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-[var(--foreground-subtle)] hover:text-[var(--foreground)]">
                   {showConfirm ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>

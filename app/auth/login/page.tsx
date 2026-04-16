@@ -148,7 +148,7 @@ export default function LoginPage() {
       {/* Left brand panel */}
       <div className="hidden lg:flex lg:w-5/12 xl:w-1/2 bg-[var(--brand)] flex-col justify-between p-12">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/margros-logo.png" alt="Margros" width={40} height={40} className="h-10 w-10 object-contain" />
+          <Image src="/logo.png" alt="Margros" width={40} height={40} className="h-10 w-10 object-contain" />
           <span className="font-display text-2xl text-white leading-none">Margros</span>
         </Link>
 
@@ -176,7 +176,7 @@ export default function LoginPage() {
           {/* Mobile logo */}
           <div className="flex justify-center mb-8 lg:hidden">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/margros-logo.png" alt="Margros" width={36} height={36} className="h-9 w-9 object-contain" />
+              <Image src="/logo.png" alt="Margros" width={36} height={36} className="h-9 w-9 object-contain" />
               <span className="font-display text-xl text-[var(--brand)]">Margros</span>
             </Link>
           </div>
@@ -283,7 +283,7 @@ export default function LoginPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(v => !v)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--foreground-subtle)] hover:text-[var(--foreground)]"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-[var(--foreground-subtle)] hover:text-[var(--foreground)]"
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>

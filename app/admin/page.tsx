@@ -43,7 +43,7 @@ export default async function AdminDashboardPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Page header */}
-        <div className="mb-10 flex items-start justify-between gap-4">
+        <div className="mb-8 sm:mb-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[var(--foreground-subtle)] mb-2">
               <ShieldCheck className="h-3.5 w-3.5" />

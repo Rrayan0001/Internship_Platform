@@ -65,15 +65,15 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
       <Navbar user={navUser} />
 
       {/* Hero */}
-      <div className="bg-[var(--brand)] text-white py-16 px-4">
+      <div className="bg-[var(--brand)] text-white py-10 sm:py-16 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="inline-block bg-white/10 border border-white/20 text-white/80 text-xs font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">
+          <div className="inline-block bg-white/10 border border-white/20 text-white/80 text-xs font-semibold px-3 py-1 rounded-full mb-4 sm:mb-5 uppercase tracking-wide">
             {course.domain}
           </div>
-          <h1 className="text-4xl font-bold mb-4 max-w-3xl leading-tight">{course.title}</h1>
-          <p className="text-white/70 text-lg mb-8 max-w-2xl leading-7">{course.description}</p>
+          <h1 className="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4 max-w-3xl leading-tight">{course.title}</h1>
+          <p className="text-white/70 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl leading-7">{course.description}</p>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm text-white/60 mb-8">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-sm text-white/60 mb-6 sm:mb-8">
             <span className="flex items-center gap-1.5"><Users className="w-4 h-4" />{course.instructor_name}</span>
             <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{course.duration}</span>
             <span className="flex items-center gap-1.5"><Video className="w-4 h-4" />{totalVideos} videos</span>

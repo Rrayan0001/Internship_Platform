@@ -36,7 +36,7 @@ export default function ForgotPasswordPage() {
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/margros-logo.png" alt="Margros" width={36} height={36} className="h-9 w-9 object-contain" />
+            <Image src="/logo.png" alt="Margros" width={36} height={36} className="h-9 w-9 object-contain" />
             <span className="font-display text-xl text-[var(--brand)]">Margros</span>
           </Link>
         </div>

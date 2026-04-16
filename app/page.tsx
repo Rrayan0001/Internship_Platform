@@ -110,7 +110,7 @@ export default async function HomePage({
                   Premium Online Learning Platform
                 </div>
 
-                <h1 className="font-display text-5xl sm:text-6xl lg:text-[4rem] leading-[1.05] tracking-[-0.03em] text-white">
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-[-0.03em] text-white">
                   The future of your{' '}
                   <span className="text-[var(--accent)]">education</span>{' '}
                   starts here.
@@ -121,7 +121,7 @@ export default async function HomePage({
                   web development — with graded outcomes, real projects, and verified certificates.
                 </p>
 
-                <div className="mt-10 flex flex-wrap gap-3">
+                <div className="mt-8 sm:mt-10 flex flex-wrap gap-3">
                   <a
                     href="#courses"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent)] text-[#10261f] text-sm font-semibold hover:bg-[var(--accent-hover)] transition-colors"
@@ -139,7 +139,7 @@ export default async function HomePage({
                 </div>
 
                 {/* Mini stats */}
-                <div className="mt-12 flex flex-wrap gap-8">
+                <div className="mt-8 sm:mt-12 flex flex-wrap gap-6 sm:gap-8">
                   {stats.map((s) => (
                     <div key={s.label}>
                       <div className="text-3xl font-bold text-white tracking-tight">{s.value}</div>
@@ -155,7 +155,7 @@ export default async function HomePage({
                 <div className="relative bg-white/8 border border-white/15 rounded-3xl p-8 backdrop-blur-sm">
                   <div className="flex items-center gap-4 mb-6">
                     <Image
-                      src="/margros-logo.png"
+                      src="/logo.png"
                       alt="Margros"
                       width={60}
                       height={60}
@@ -197,11 +197,11 @@ export default async function HomePage({
         {/* ── STATS BAR ────────────────────────────────────────────── */}
         <section className="border-b border-[var(--border)] bg-[var(--background-soft)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
-            <div className="flex flex-wrap items-center justify-between gap-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <p className="text-sm font-medium text-[var(--foreground-muted)]">
                 Trusted learning. Structured delivery. Real outcomes.
               </p>
-              <div className="flex flex-wrap items-center gap-8">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-4 sm:gap-8">
                 {[
                   { value: `${courses.length || '0'}+`, label: 'Programs live' },
                   { value: `${domainList.length}`, label: 'Career tracks' },
@@ -231,11 +231,11 @@ export default async function HomePage({
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {platformFeatures.map((f) => (
                 <div
                   key={f.title}
-                  className="border border-[var(--border)] rounded-2xl p-8 hover:border-[var(--brand)]/30 hover:shadow-[0_8px_30px_rgba(23,53,43,0.07)] transition-all duration-200"
+                  className="border border-[var(--border)] rounded-2xl p-6 sm:p-8 hover:border-[var(--brand)]/30 hover:shadow-[0_8px_30px_rgba(23,53,43,0.07)] transition-all duration-200"
                 >
                   <div className="h-11 w-11 rounded-xl bg-[var(--brand)] text-[#f3d4b8] flex items-center justify-center mb-5">
                     <f.icon className="h-5 w-5" />
@@ -252,7 +252,7 @@ export default async function HomePage({
         <section id="courses" className="py-20 bg-[var(--background-soft)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Header */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8 sm:mb-10">
               <div>
                 <p className="section-label mb-3">Program library</p>
                 <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-[var(--brand)]">
@@ -364,7 +364,7 @@ export default async function HomePage({
               <div className="bg-white border border-[var(--border)] rounded-3xl p-12 text-center">
                 <div className="mx-auto w-20 h-20 mb-6">
                   <Image
-                    src="/margros-logo.png"
+                    src="/logo.png"
                     alt="Margros"
                     width={80}
                     height={80}
@@ -475,7 +475,7 @@ export default async function HomePage({
               {/* Brand */}
               <div className="flex items-center gap-3">
                 <Image
-                  src="/margros-logo.png"
+                  src="/logo.png"
                   alt="Margros"
                   width={44}
                   height={44}

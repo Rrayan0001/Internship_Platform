@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import { CheckCircle2, PlayCircle, FileText, ChevronRight, Award, Loader2, Upload, Clock } from 'lucide-react'
+import { CheckCircle2, PlayCircle, FileText, ChevronRight, Award, Loader2, Upload, Clock, Menu, X } from 'lucide-react'
 
 interface Video { id: string; title: string; storage_path: string; duration_seconds: number | null; order_index: number }
 interface Assignment { id: string; type: string; prompt: string; options: string[] | null; correct_option: number | null; max_score: number }
@@ -28,6 +28,7 @@ export default function CoursePlayer({ enrollment, course, weeks, videoProgress,
   const [activeTab, setActiveTab] = useState<'videos' | 'assignment'>('videos')
   const [videoUrl, setVideoUrl] = useState<string | null>(null)
   const [loadingUrl, setLoadingUrl] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const [progress, setProgress] = useState<Record<string, Progress>>(
     Object.fromEntries(videoProgress.map(p => [p.video_id, p]))
   )
@@ -157,9 +158,31 @@ export default function CoursePlayer({ enrollment, course, weeks, videoProgress,
   const overallProgress = totalVideos > 0 ? Math.round((watchedCount / totalVideos) * 100) : 0
 
   return (
-    <div className="flex flex-1 overflow-hidden">
+    <div className="flex flex-1 overflow-hidden relative">
+      {/* Mobile sidebar toggle */}
+      <button
+        onClick={() => setSidebarOpen(v => !v)}
+        className="md:hidden fixed bottom-4 right-4 z-50 h-12 w-12 rounded-full bg-[var(--brand)] text-white shadow-lg flex items-center justify-center"
+        aria-label="Toggle course menu"
+      >
+        {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+      </button>
+
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-30 bg-black/40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <div className="w-72 bg-white border-r border-[var(--border)] flex flex-col overflow-y-auto flex-shrink-0">
+      <div className={`
+        fixed md:relative inset-y-0 left-0 z-40
+        w-72 bg-white border-r border-[var(--border)] flex flex-col overflow-y-auto flex-shrink-0
+        transition-transform duration-300 ease-in-out
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+      `}>
         {/* Course title */}
         <div className="p-4 border-b border-[var(--border)]">
           <h2 className="font-semibold text-[var(--brand)] text-sm line-clamp-2">{course.title}</h2>
@@ -228,8 +251,8 @@ export default function CoursePlayer({ enrollment, course, weeks, videoProgress,
         {selectedWeek ? (
           <div>
             {/* Tabs */}
-            <div className="border-b border-[var(--border)] bg-white px-6">
-              <div className="flex gap-6">
+            <div className="border-b border-[var(--border)] bg-white px-4 sm:px-6">
+              <div className="flex gap-4 sm:gap-6">
                 <button
                   onClick={() => setActiveTab('videos')}
                   className={`py-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'videos' ? 'border-[var(--brand)] text-[var(--brand)]' : 'border-transparent text-[var(--foreground-muted)] hover:text-[var(--foreground)]'}`}
@@ -249,8 +272,8 @@ export default function CoursePlayer({ enrollment, course, weeks, videoProgress,
             </div>
 
             {activeTab === 'videos' ? (
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-[var(--brand)] mb-6">Week {selectedWeek.week_number}: {selectedWeek.title}</h2>
+              <div className="p-4 sm:p-6">
+                <h2 className="text-lg sm:text-xl font-bold text-[var(--brand)] mb-4 sm:mb-6">Week {selectedWeek.week_number}: {selectedWeek.title}</h2>
 
                 {/* Video Player */}
                 {selectedVideo && (
@@ -297,8 +320,8 @@ export default function CoursePlayer({ enrollment, course, weeks, videoProgress,
                 </div>
               </div>
             ) : (
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-[var(--brand)] mb-6">Week {selectedWeek.week_number} Assessment</h2>
+              <div className="p-4 sm:p-6">
+                <h2 className="text-lg sm:text-xl font-bold text-[var(--brand)] mb-4 sm:mb-6">Week {selectedWeek.week_number} Assessment</h2>
                 {selectedWeek.week_assignments.length === 0 ? (
                   <div className="text-center py-12 text-gray-400">
                     <FileText className="w-10 h-10 mx-auto mb-2 text-gray-300" />

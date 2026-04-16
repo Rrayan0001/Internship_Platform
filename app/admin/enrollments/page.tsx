@@ -32,7 +32,46 @@ export default async function AdminEnrollmentsPage() {
         </Link>
         <h1 className="text-2xl font-bold text-[var(--brand)] mb-6">All Enrolments</h1>
 
-        <div className="bg-white border border-[var(--border)] rounded-2xl overflow-hidden">
+        {/* Mobile card layout */}
+        <div className="sm:hidden space-y-3">
+          {enrollments?.map((enr: {
+            id: string
+            status: string
+            requested_at: string
+            users: { id?: string; name: string; email: string } | null
+            courses: { title: string; domain: string } | null
+          }) => (
+            <div key={enr.id} className="bg-white border border-[var(--border)] rounded-xl p-4 space-y-3">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div className="font-medium text-[var(--foreground)]">{enr.users?.name}</div>
+                  <div className="text-xs text-[var(--foreground-subtle)]">{enr.users?.email}</div>
+                </div>
+                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full capitalize shrink-0 ${statusColors[enr.status] ?? 'bg-[var(--background-soft)] text-[var(--foreground-muted)]'}`}>
+                  {enr.status}
+                </span>
+              </div>
+              <div className="border-t border-[var(--border)] pt-3">
+                <div className="font-medium text-sm text-[var(--foreground)]">{enr.courses?.title}</div>
+                <div className="text-xs text-[var(--foreground-subtle)]">{enr.courses?.domain}</div>
+              </div>
+              <div className="flex items-center justify-between pt-1">
+                <span className="text-xs text-[var(--foreground-muted)]">{new Date(enr.requested_at).toLocaleDateString()}</span>
+                <div>
+                  {enr.status === 'pending' && <EnrollmentActions enrollmentId={enr.id} />}
+                  {enr.status !== 'pending' && enr.users?.id && (
+                    <Link href={`/admin/students/${enr.users.id}`} className="text-xs font-medium text-[var(--brand)] hover:text-[var(--brand-hover)]">
+                      View Journey →
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop table */}
+        <div className="hidden sm:block bg-white border border-[var(--border)] rounded-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-[var(--background-soft)] border-b border-[var(--border)]">

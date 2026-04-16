@@ -43,10 +43,10 @@ export default async function AdminStudentsPage() {
                   <div className="font-medium text-[var(--foreground)]">{student.name}</div>
                   <div className="text-sm text-[var(--foreground-subtle)] truncate">{student.email}</div>
                 </div>
-                <div className="text-xs text-[var(--foreground-subtle)]">
+                <div className="hidden sm:block text-xs text-[var(--foreground-subtle)]">
                   {new Date(student.created_at).toLocaleDateString()}
                 </div>
-                <ChevronRight className="w-4 h-4 text-[var(--foreground-subtle)]" />
+                <ChevronRight className="w-4 h-4 text-[var(--foreground-subtle)] shrink-0" />
               </Link>
             ))}
             {!students?.length && (
