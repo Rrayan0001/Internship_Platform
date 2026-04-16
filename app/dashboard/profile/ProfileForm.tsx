@@ -49,7 +49,7 @@ export default function ProfileForm({ profile, userEmail }: Props) {
         legal_name: legalName || null,
         degree: degree || null,
         field_of_study: fieldOfStudy || null,
-        current_status: (currentStatus as 'student' | 'professional') || null,
+        current_status: (currentStatus as 'student' | 'professional' | null) || null,
       })
       .eq('id', profile.id)
 
