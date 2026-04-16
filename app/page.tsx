@@ -7,12 +7,10 @@ import {
   BarChart2,
   BookOpen,
   BrainCircuit,
-  CheckCircle2,
   Clock,
   Code2,
   Cpu,
   PlayCircle,
-  Star,
   Users,
   Zap,
   type LucideIcon,
@@ -37,18 +35,18 @@ const domainPalette: Record<string, { bg: string; text: string; dot: string }> =
 const platformFeatures = [
   {
     icon: Zap,
-    title: 'Structured 6-8 week programs',
-    desc: 'Every course follows a sprint-based format — weekly content, graded assignments, and clear milestones.',
+    title: 'Structured 6-8 week training programs',
+    desc: 'Every program follows a sprint-based format — weekly modules, graded assignments, and clear milestones built for real skill development.',
   },
   {
     icon: Award,
     title: 'Certificate-backed outcomes',
-    desc: 'Complete your program and earn a verified Margros certificate that signals real skills.',
+    desc: 'Complete your training and earn a verified Margros certificate that proves industry-ready skills.',
   },
   {
     icon: Users,
-    title: 'Expert-led instruction',
-    desc: 'Learn from practitioners building and deploying real data, AI, and web systems.',
+    title: 'Industry-expert trainers',
+    desc: 'Train under practitioners actively building and deploying real data, AI, and web systems.',
   },
 ]
 
@@ -101,24 +99,19 @@ export default async function HomePage({
       <main>
         {/* ── HERO ─────────────────────────────────────────────────── */}
         <section className="bg-[var(--brand)] text-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-16 lg:pb-28">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left copy */}
               <div>
-                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide text-[#f3d4b8] mb-8">
-                  <Star className="h-3.5 w-3.5 fill-current" />
-                  Premium Online Learning Platform
-                </div>
-
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-[-0.03em] text-white">
-                  The future of your{' '}
-                  <span className="text-[var(--accent)]">education</span>{' '}
+                <h1 className="font-display text-5xl sm:text-6xl lg:text-[5rem] leading-[1.05] tracking-[-0.03em] text-white">
+                  Your professional{' '}
+                  <span className="text-[var(--accent)]">training</span>{' '}
                   starts here.
                 </h1>
 
                 <p className="mt-6 text-lg leading-8 text-white/75 max-w-xl">
-                  Margros delivers structured 6-8 week programs in data, AI, machine learning, and
-                  web development — with graded outcomes, real projects, and verified certificates.
+                  Margros delivers structured 6-8 week training programs in data, AI, machine learning, and
+                  web development — hands-on, outcome-driven, and built for the industry.
                 </p>
 
                 <div className="mt-8 sm:mt-10 flex flex-wrap gap-3">
@@ -149,45 +142,18 @@ export default async function HomePage({
                 </div>
               </div>
 
-              {/* Right card */}
-              <div className="relative hidden lg:block">
-                <div className="absolute inset-0 bg-[var(--accent)]/10 rounded-3xl blur-3xl" />
-                <div className="relative bg-white/8 border border-white/15 rounded-3xl p-8 backdrop-blur-sm">
-                  <div className="flex items-center gap-4 mb-6">
-                    <Image
-                      src="/logo.png"
-                      alt="Margros"
-                      width={60}
-                      height={60}
-                      className="h-14 w-14 object-contain"
-                    />
-                    <div>
-                      <div className="font-display text-2xl leading-none text-white">Margros</div>
-                      <div className="text-xs text-white/55 mt-1 uppercase tracking-widest">Premium learning</div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    {[
-                      { label: 'Program format', value: '6-8 week sprints' },
-                      { label: 'Tracks available', value: 'Data · AI · ML · Web' },
-                      { label: 'Certificate', value: 'Verified on completion' },
-                      { label: 'Assessment', value: 'Graded & reviewed' },
-                    ].map((item) => (
-                      <div
-                        key={item.label}
-                        className="flex items-center justify-between bg-white/8 border border-white/10 rounded-xl px-4 py-3"
-                      >
-                        <span className="text-xs text-white/55 font-medium uppercase tracking-wide">{item.label}</span>
-                        <span className="text-sm font-semibold text-white">{item.value}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 flex items-center gap-2 text-xs text-white/45">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--accent)]" />
-                    Enrolment open — apply for any track today
-                  </div>
+              {/* Right hero image */}
+              <div className="relative flex items-end justify-center pt-2 lg:pt-0">
+                <div className="absolute bottom-0 left-1/2 h-1/2 w-3/4 -translate-x-1/2 rounded-full bg-[var(--accent)]/15 blur-3xl" />
+                <div className="relative z-10 w-full max-w-md overflow-hidden rounded-[1.5rem] shadow-2xl sm:rounded-[2rem] lg:max-w-lg">
+                  <Image
+                    src="/hero.png"
+                    alt="Student learning on Margros"
+                    width={580}
+                    height={440}
+                    className="h-auto w-full object-cover"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -199,7 +165,7 @@ export default async function HomePage({
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <p className="text-sm font-medium text-[var(--foreground-muted)]">
-                Trusted learning. Structured delivery. Real outcomes.
+                Industry-grade training. Structured delivery. Real outcomes.
               </p>
               <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-4 sm:gap-8">
                 {[
@@ -224,10 +190,10 @@ export default async function HomePage({
             <div className="text-center max-w-2xl mx-auto mb-14">
               <p className="section-label mb-3">Why Margros</p>
               <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-[var(--brand)]">
-                Learning that actually sticks.
+                Training that builds real capability.
               </h2>
               <p className="mt-4 text-base leading-7 text-[var(--foreground-muted)]">
-                We combine a polished creator-platform feel with structured eight-week programs — less template, more trust.
+                We combine structured eight-week training programs with hands-on projects and expert mentorship — built to produce job-ready professionals.
               </p>
             </div>
 
@@ -249,32 +215,32 @@ export default async function HomePage({
         </section>
 
         {/* ── COURSE CATALOGUE ─────────────────────────────────────── */}
-        <section id="courses" className="py-20 bg-[var(--background-soft)]">
+        <section id="courses" className="bg-[var(--brand)] py-20 text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8 sm:mb-10">
               <div>
-                <p className="section-label mb-3">Program library</p>
-                <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-[var(--brand)]">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#f3d4b8]">Program library</p>
+                <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-white">
                   {domain
                     ? `${domain} programs`
                     : 'Browse all programs'}
                 </h2>
-                <p className="mt-3 text-base text-[var(--foreground-muted)] max-w-lg">
-                  Explore curated tracks across data science, machine learning, AI, and web development.
+                <p className="mt-3 text-base text-white/70 max-w-lg">
+                  Explore hands-on training tracks across data science, machine learning, AI, and web development.
                 </p>
               </div>
 
               {/* Inline stat pill */}
-              <div className="flex items-center gap-6 bg-white border border-[var(--border)] rounded-2xl px-6 py-4 shrink-0">
+              <div className="flex items-center gap-6 shrink-0 rounded-2xl border border-white/15 bg-white/8 px-6 py-4 backdrop-blur-sm">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[var(--brand)]">{String(courses.length).padStart(2, '0')}</div>
-                  <div className="text-[11px] uppercase tracking-widest text-[var(--foreground-subtle)] mt-0.5">Programs</div>
+                  <div className="text-2xl font-bold text-white">{String(courses.length).padStart(2, '0')}</div>
+                  <div className="text-[11px] uppercase tracking-widest text-white/45 mt-0.5">Programs</div>
                 </div>
-                <div className="w-px h-8 bg-[var(--border)]" />
+                <div className="w-px h-8 bg-white/15" />
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[var(--brand)]">{String(domainList.length).padStart(2, '0')}</div>
-                  <div className="text-[11px] uppercase tracking-widest text-[var(--foreground-subtle)] mt-0.5">Tracks</div>
+                  <div className="text-2xl font-bold text-white">{String(domainList.length).padStart(2, '0')}</div>
+                  <div className="text-[11px] uppercase tracking-widest text-white/45 mt-0.5">Tracks</div>
                 </div>
               </div>
             </div>
@@ -282,13 +248,13 @@ export default async function HomePage({
             {/* Domain filter pills */}
             <div className="flex flex-wrap gap-2 mb-10">
               <Link
-                href="/#courses"
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
-                  !domain
-                    ? 'bg-[var(--brand)] text-white border-transparent'
-                    : 'bg-white text-[var(--foreground-muted)] border-[var(--border)] hover:border-[var(--brand)]/30 hover:text-[var(--brand)]'
-                }`}
-              >
+                  href="/#courses"
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
+                    !domain
+                      ? 'bg-[var(--accent)] text-[#10261f] border-transparent'
+                      : 'bg-white/8 text-white/70 border-white/12 hover:border-white/25 hover:text-white'
+                  }`}
+                >
                 All programs
               </Link>
               {domainList.map((d) => (
@@ -298,7 +264,7 @@ export default async function HomePage({
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
                     domain === d
                       ? 'bg-[var(--accent)] text-[#10261f] border-transparent'
-                      : 'bg-white text-[var(--foreground-muted)] border-[var(--border)] hover:border-[var(--brand)]/30 hover:text-[var(--brand)]'
+                      : 'bg-white/8 text-white/70 border-white/12 hover:border-white/25 hover:text-white'
                   }`}
                 >
                   {d}
@@ -315,7 +281,7 @@ export default async function HomePage({
 
                   return (
                     <Link key={course.id} href={`/courses/${course.id}`} className="group block">
-                      <article className="h-full bg-white border border-[var(--border)] rounded-2xl overflow-hidden hover:border-[var(--brand)]/30 hover:shadow-[0_12px_40px_rgba(23,53,43,0.10)] transition-all duration-200">
+                      <article className="h-full overflow-hidden rounded-2xl border border-white/12 bg-white/8 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-[var(--accent)]/50 hover:shadow-[0_18px_55px_rgba(0,0,0,0.22)]">
                         {/* Card header strip */}
                         <div
                           className="h-2 w-full"
@@ -332,24 +298,24 @@ export default async function HomePage({
                             {course.domain}
                           </div>
 
-                          <h3 className="text-lg font-semibold leading-snug text-[var(--brand)] group-hover:text-[var(--brand-hover)] mb-3 transition-colors">
+                          <h3 className="text-lg font-semibold leading-snug text-white group-hover:text-[#f3d4b8] mb-3 transition-colors">
                             {course.title}
                           </h3>
-                          <p className="text-sm leading-6 text-[var(--foreground-muted)] line-clamp-3 mb-6">
+                          <p className="text-sm leading-6 text-white/65 line-clamp-3 mb-6">
                             {course.description}
                           </p>
 
                           {/* Meta row */}
-                          <div className="flex items-center gap-4 pt-5 border-t border-[var(--border)]">
-                            <div className="flex items-center gap-1.5 text-xs text-[var(--foreground-subtle)]">
+                          <div className="flex items-center gap-4 pt-5 border-t border-white/12">
+                            <div className="flex items-center gap-1.5 text-xs text-white/45">
                               <Users className="h-3.5 w-3.5" />
                               {course.instructor_name}
                             </div>
-                            <div className="flex items-center gap-1.5 text-xs text-[var(--foreground-subtle)]">
+                            <div className="flex items-center gap-1.5 text-xs text-white/45">
                               <Clock className="h-3.5 w-3.5" />
                               {course.duration}
                             </div>
-                            <div className="ml-auto flex items-center gap-1 text-xs font-semibold text-[var(--brand)] group-hover:gap-2 transition-all">
+                            <div className="ml-auto flex items-center gap-1 text-xs font-semibold text-[#f3d4b8] group-hover:gap-2 transition-all">
                               View <ArrowRight className="h-3.5 w-3.5" />
                             </div>
                           </div>
@@ -361,7 +327,7 @@ export default async function HomePage({
               </div>
             ) : (
               /* Empty state */
-              <div className="bg-white border border-[var(--border)] rounded-3xl p-12 text-center">
+              <div className="rounded-3xl border border-white/12 bg-white/8 p-12 text-center backdrop-blur-sm">
                 <div className="mx-auto w-20 h-20 mb-6">
                   <Image
                     src="/logo.png"
@@ -371,15 +337,15 @@ export default async function HomePage({
                     className="object-contain"
                   />
                 </div>
-                <h3 className="font-display text-3xl text-[var(--brand)] mb-3">
+                <h3 className="font-display text-3xl text-white mb-3">
                   Programs launching soon.
                 </h3>
-                <p className="text-sm leading-7 text-[var(--foreground-muted)] max-w-md mx-auto mb-8">
+                <p className="text-sm leading-7 text-white/65 max-w-md mx-auto mb-8">
                   Our first cohort of programs is being prepared. Sign up now to be the first to know when they go live.
                 </p>
                 <Link
                   href="/auth/signup"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--brand)] text-[#fbf6ee] text-sm font-semibold hover:bg-[var(--brand-hover)] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent)] text-[#10261f] text-sm font-semibold hover:bg-[var(--accent-hover)] transition-colors"
                 >
                   Create free account
                   <ArrowRight className="h-4 w-4" />
@@ -396,10 +362,10 @@ export default async function HomePage({
               <div>
                 <p className="section-label mb-3">The Margros flow</p>
                 <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-[var(--brand)] mb-5">
-                  Three steps to real skills.
+                  Three steps to industry readiness.
                 </h2>
                 <p className="text-base leading-7 text-[var(--foreground-muted)]">
-                  Our programs are designed around clear progression — from choosing a track to earning a verified certificate.
+                  Our training programs are built around clear progression — from choosing a track to earning a verified certificate that proves your capability.
                 </p>
               </div>
 
@@ -407,18 +373,18 @@ export default async function HomePage({
                 {[
                   {
                     step: '01',
-                    title: 'Choose a focused track',
-                    copy: 'Pick from data science, ML, AI, or web development. Each track is purpose-built with no filler content.',
+                    title: 'Choose your training track',
+                    copy: 'Pick from data science, ML, AI, or web development. Each track is purpose-built with no filler — only what the industry demands.',
                   },
                   {
                     step: '02',
-                    title: 'Learn in weekly sprints',
-                    copy: 'Each week combines video content, practical assignments, and feedback from instructors.',
+                    title: 'Train in structured weekly sprints',
+                    copy: 'Each week combines video modules, hands-on exercises, and direct feedback from expert trainers.',
                   },
                   {
                     step: '03',
                     title: 'Earn a verified certificate',
-                    copy: 'Complete assignments, pass reviews, and receive a Margros certificate that signals real-world readiness.',
+                    copy: 'Complete your training, pass assessments, and receive a Margros certificate that proves real-world readiness.',
                   },
                 ].map((item) => (
                   <div
@@ -440,67 +406,59 @@ export default async function HomePage({
         </section>
 
         {/* ── CTA BANNER ───────────────────────────────────────────── */}
-        <section className="py-20 bg-[var(--background-soft)]">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-[var(--brand)] rounded-3xl px-8 py-16">
-              <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-white mb-5">
-                Ready to build skills that matter?
-              </h2>
-              <p className="text-white/70 text-base leading-7 max-w-xl mx-auto mb-10">
-                Join Margros today — free to sign up, structured to succeed.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/auth/signup"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-[var(--accent)] text-[#10261f] text-sm font-semibold hover:bg-[var(--accent-hover)] transition-colors"
-                >
-                  Get started free
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a
-                  href="#courses"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white text-sm font-semibold hover:bg-white/15 transition-colors"
-                >
-                  Browse programs
-                </a>
-              </div>
+        <section
+          className="relative py-28 overflow-hidden"
+          style={{
+            backgroundImage: 'url(/banner.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundAttachment: 'fixed',
+          }}
+        >
+          {/* Dark overlay across the full section */}
+          <div className="absolute inset-0 bg-[var(--brand)]/70" />
+
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <p className="section-label text-[var(--accent)] mb-4">Get started</p>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-[-0.03em] text-white mb-6">
+              Ready to get trained for what matters?
+            </h2>
+            <p className="text-white/70 text-base leading-7 max-w-xl mx-auto mb-10">
+              Join Margros today — free to sign up, structured to train, built to produce professionals.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/auth/signup"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-[var(--accent)] text-[#10261f] text-sm font-semibold hover:bg-[var(--accent-hover)] transition-colors"
+              >
+                Get started free
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="#courses"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white text-sm font-semibold hover:bg-white/15 transition-colors"
+              >
+                Browse programs
+              </a>
             </div>
           </div>
         </section>
 
         {/* ── FOOTER ───────────────────────────────────────────────── */}
         <footer className="bg-white border-t border-[var(--border)]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-              {/* Brand */}
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/logo.png"
-                  alt="Margros"
-                  width={44}
-                  height={44}
-                  className="h-10 w-10 object-contain"
-                />
-                <div>
-                  <div className="font-display text-xl leading-none text-[var(--brand)]">Margros</div>
-                  <div className="text-xs text-[var(--foreground-subtle)] mt-0.5 uppercase tracking-widest">
-                    Premium learning platform
-                  </div>
-                </div>
-              </div>
-
-              {/* Links */}
-              <nav className="flex flex-wrap gap-6 text-sm text-[var(--foreground-muted)]">
-                <Link href="/" className="hover:text-[var(--brand)] transition-colors">Programs</Link>
-                <Link href="/auth/login" className="hover:text-[var(--brand)] transition-colors">Log in</Link>
-                <Link href="/auth/signup" className="hover:text-[var(--brand)] transition-colors">Sign up</Link>
-              </nav>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2.5">
+              <Image src="/logo.png" alt="Margros" width={28} height={28} className="h-7 w-7 object-contain" />
+              <span className="font-display text-base text-[var(--brand)]">Margros</span>
             </div>
-
-            <div className="mt-8 pt-8 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--foreground-subtle)]">
-              <span>© {new Date().getFullYear()} Margros. All rights reserved.</span>
-              <span>Built for serious learners.</span>
-            </div>
+            <p className="text-xs text-[var(--foreground-subtle)]">
+              © {new Date().getFullYear()} Margros PVT LTD. All rights reserved.
+            </p>
+            <nav className="flex items-center gap-5 text-xs text-[var(--foreground-muted)]">
+              <Link href="/#courses" className="hover:text-[var(--brand)] transition-colors">Programs</Link>
+              <Link href="/auth/login" className="hover:text-[var(--brand)] transition-colors">Log in</Link>
+              <a href="mailto:margrosmarketing@gmail.com" className="hover:text-[var(--brand)] transition-colors">Contact</a>
+            </nav>
           </div>
         </footer>
       </main>
