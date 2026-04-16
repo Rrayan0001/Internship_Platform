@@ -40,7 +40,8 @@ export default function ProfileForm({ profile, userEmail }: Props) {
     setProfileError('')
     setProfileSuccess(false)
 
-    const { error } = await supabase
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any)
       .from('users')
       .update({
         name,
@@ -49,7 +50,7 @@ export default function ProfileForm({ profile, userEmail }: Props) {
         legal_name: legalName || null,
         degree: degree || null,
         field_of_study: fieldOfStudy || null,
-        current_status: (currentStatus as 'student' | 'professional' | null) || null,
+        current_status: currentStatus || null,
       })
       .eq('id', profile.id)
 
