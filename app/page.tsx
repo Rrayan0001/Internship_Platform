@@ -147,8 +147,8 @@ export default async function HomePage({
                 <div className="absolute bottom-0 left-1/2 h-1/2 w-3/4 -translate-x-1/2 rounded-full bg-[var(--accent)]/15 blur-3xl" />
                 <div className="relative z-10 w-full max-w-md overflow-hidden rounded-[1.5rem] shadow-2xl sm:rounded-[2rem] lg:max-w-lg">
                   <Image
-                    src="/hero.png"
-                    alt="Student learning on Margros"
+                    src="/heronew.png"
+                    alt="Professional training on Margros"
                     width={580}
                     height={440}
                     className="h-auto w-full object-cover"
@@ -358,49 +358,63 @@ export default async function HomePage({
         {/* ── HOW IT WORKS ─────────────────────────────────────────── */}
         <section className="py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <div>
-                <p className="section-label mb-3">The Margros flow</p>
-                <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-[var(--brand)] mb-5">
-                  Three steps to industry readiness.
-                </h2>
-                <p className="text-base leading-7 text-[var(--foreground-muted)]">
-                  Our training programs are built around clear progression — from choosing a track to earning a verified certificate that proves your capability.
-                </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+              {/* Left — image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-xl">
+                <Image
+                  src="/howitworks.png"
+                  alt="Trainee earning a certificate on Margros"
+                  width={620}
+                  height={480}
+                  className="h-auto w-full object-cover"
+                />
               </div>
 
-              <div className="space-y-4">
-                {[
-                  {
-                    step: '01',
-                    title: 'Choose your training track',
-                    copy: 'Pick from data science, ML, AI, or web development. Each track is purpose-built with no filler — only what the industry demands.',
-                  },
-                  {
-                    step: '02',
-                    title: 'Train in structured weekly sprints',
-                    copy: 'Each week combines video modules, hands-on exercises, and direct feedback from expert trainers.',
-                  },
-                  {
-                    step: '03',
-                    title: 'Earn a verified certificate',
-                    copy: 'Complete your training, pass assessments, and receive a Margros certificate that proves real-world readiness.',
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.step}
-                    className="flex gap-5 border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--brand)]/30 transition-colors"
-                  >
-                    <div className="text-2xl font-bold text-[var(--accent)] shrink-0 leading-none mt-0.5 w-8">
-                      {item.step}
+              {/* Right — heading + steps */}
+              <div>
+                <p className="section-label mb-3">The Margros flow</p>
+                <h2 className="font-display text-4xl sm:text-5xl leading-tight tracking-[-0.03em] text-[var(--brand)] mb-4">
+                  Three steps to industry readiness.
+                </h2>
+                <p className="text-base leading-7 text-[var(--foreground-muted)] mb-8">
+                  Our training programs are built around clear progression — from choosing a track to earning a verified certificate that proves your capability.
+                </p>
+
+                <div className="space-y-4">
+                  {[
+                    {
+                      step: '01',
+                      title: 'Choose your training track',
+                      copy: 'Pick from data science, ML, AI, or web development. Each track is purpose-built with no filler — only what the industry demands.',
+                    },
+                    {
+                      step: '02',
+                      title: 'Train in structured weekly sprints',
+                      copy: 'Each week combines video modules, hands-on exercises, and direct feedback from expert trainers.',
+                    },
+                    {
+                      step: '03',
+                      title: 'Earn a verified certificate',
+                      copy: 'Complete your training, pass assessments, and receive a Margros certificate that proves real-world readiness.',
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.step}
+                      className="flex gap-5 border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--brand)]/30 transition-colors"
+                    >
+                      <div className="text-2xl font-bold text-[var(--accent)] shrink-0 leading-none mt-0.5 w-8">
+                        {item.step}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-[var(--brand)] mb-1">{item.title}</div>
+                        <p className="text-sm leading-6 text-[var(--foreground-muted)]">{item.copy}</p>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-semibold text-[var(--brand)] mb-1">{item.title}</div>
-                      <p className="text-sm leading-6 text-[var(--foreground-muted)]">{item.copy}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
             </div>
           </div>
         </section>
