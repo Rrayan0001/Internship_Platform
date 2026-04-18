@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-import { Loader2, CheckCircle2, Eye, EyeOff } from 'lucide-react'
+import { Loader2, CheckCircle2, Eye, EyeOff, AlertTriangle } from 'lucide-react'
 import Image from 'next/image'
 
 type Step = 'details' | 'otp'
@@ -19,20 +19,34 @@ export default function SignupPage() {
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [alreadyExists, setAlreadyExists] = useState(false)
 
   async function handleSignup(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
     setError('')
+    setAlreadyExists(false)
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: { data: { name }, emailRedirectTo: undefined },
     })
 
     if (error) {
-      setError(error.message)
+      // Supabase returns this message for duplicate emails
+      if (
+        error.message.toLowerCase().includes('already registered') ||
+        error.message.toLowerCase().includes('user already exists') ||
+        error.message.toLowerCase().includes('email already')
+      ) {
+        setAlreadyExists(true)
+      } else {
+        setError(error.message)
+      }
+    } else if (data.user && data.user.identities && data.user.identities.length === 0) {
+      // Supabase silently returns a user with empty identities for existing accounts
+      setAlreadyExists(true)
     } else {
       setMessage('A 6-digit verification code has been sent to your email.')
       setStep('otp')
@@ -131,7 +145,7 @@ export default function SignupPage() {
                     type="email"
                     required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => { setEmail(e.target.value); setAlreadyExists(false) }}
                     placeholder="you@example.com"
                     className="input-field"
                   />
@@ -157,6 +171,18 @@ export default function SignupPage() {
                     </button>
                   </div>
                 </div>
+
+                {alreadyExists && (
+                  <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-lg text-sm">
+                    <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-amber-500" />
+                    <span>
+                      An account with this email already exists.{' '}
+                      <Link href="/auth/login" className="font-semibold underline underline-offset-2 hover:text-amber-900 transition-colors">
+                        Log in instead
+                      </Link>
+                    </span>
+                  </div>
+                )}
 
                 {error && (
                   <p className="text-sm text-[var(--error)] bg-[var(--error-soft)] px-4 py-3 rounded-lg">{error}</p>
