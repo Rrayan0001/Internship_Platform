@@ -5,15 +5,13 @@ import { ArrowLeft, Plus, BookOpen, Edit } from 'lucide-react'
 
 const domainBg: Record<string, string> = {
   'Data Science': '#e8f5ee',
-  'Machine Learning': '#fef3e8',
-  'Artificial Intelligence': '#eff3ff',
-  'Web Development': '#f0faf4',
+  'Frontend Development': '#eff3ff',
+  'Backend Development': '#fef3e8',
 }
 const domainText: Record<string, string> = {
   'Data Science': '#15603a',
-  'Machine Learning': '#8a3f1d',
-  'Artificial Intelligence': '#3730a3',
-  'Web Development': '#166534',
+  'Frontend Development': '#3730a3',
+  'Backend Development': '#8a3f1d',
 }
 
 export default async function AdminCoursesPage() {

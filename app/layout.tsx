@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, DM_Serif_Display, Geist_Mono } from "next/font/google";
+import WelcomeAnimationLayout from "@/components/WelcomeAnimationLayout";
 import "./globals.css";
 
 const bodyFont = Inter({
@@ -33,7 +34,9 @@ export default function RootLayout({
       lang="en"
       className={`${bodyFont.variable} ${displayFont.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+        <WelcomeAnimationLayout>{children}</WelcomeAnimationLayout>
+      </body>
     </html>
   );
 }

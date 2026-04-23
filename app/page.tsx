@@ -6,7 +6,6 @@ import {
   Award,
   BarChart2,
   BookOpen,
-  BrainCircuit,
   Clock,
   Code2,
   Cpu,
@@ -20,16 +19,14 @@ import Image from 'next/image'
 
 const domainIcons: Record<string, LucideIcon> = {
   'Data Science': BarChart2,
-  'Machine Learning': BrainCircuit,
-  'Artificial Intelligence': Cpu,
-  'Web Development': Code2,
+  'Frontend Development': Code2,
+  'Backend Development': Cpu,
 }
 
 const domainPalette: Record<string, { bg: string; text: string; dot: string }> = {
   'Data Science':       { bg: '#e8f5ee', text: '#15603a', dot: '#34a853' },
-  'Machine Learning':   { bg: '#fef3e8', text: '#8a3f1d', dot: '#f08242' },
-  'Artificial Intelligence': { bg: '#eff3ff', text: '#3730a3', dot: '#6366f1' },
-  'Web Development':    { bg: '#f0faf4', text: '#166534', dot: '#22c55e' },
+  'Frontend Development': { bg: '#eff3ff', text: '#3730a3', dot: '#6366f1' },
+  'Backend Development': { bg: '#fef3e8', text: '#8a3f1d', dot: '#f08242' },
 }
 
 const platformFeatures = [
@@ -227,7 +224,7 @@ export default async function HomePage({
                     : 'Browse all programs'}
                 </h2>
                 <p className="mt-3 text-base text-white/70 max-w-lg">
-                  Explore hands-on training tracks across data science, machine learning, AI, and web development.
+                  Explore hands-on internship tracks across frontend development, backend development, and data science.
                 </p>
               </div>
 

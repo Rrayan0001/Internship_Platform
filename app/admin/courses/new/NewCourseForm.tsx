@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 
-const DOMAINS = ['Data Science', 'Machine Learning', 'Artificial Intelligence', 'Web Development']
+const DOMAINS = ['Frontend Development', 'Backend Development', 'Data Science']
 
 interface WeekInput {
   week_number: number
@@ -79,7 +79,7 @@ export default function NewCourseForm() {
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="e.g. Complete Data Science Bootcamp"
+            placeholder="e.g. Frontend Development Internship"
             className="input-field"
           />
         </div>
